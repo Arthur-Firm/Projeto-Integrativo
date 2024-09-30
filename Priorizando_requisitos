@@ -1,0 +1,63 @@
+#include<stdio.h>
+#include<locale.h>
+
+int main(void)
+{
+	setlocale(LC_ALL, "Portuguese");
+	
+	char Req[50];
+	float n1, n2, n3;
+	float media;
+	
+	printf("AVALIAÇÃO DE PRIORIDADE\n");
+	printf("Digite um requisito do Sistema: ");
+	fgets(Req, 50, stdin);
+	
+	printf("\nDe 1 a 10 avalie o impacto positivo desse requisito no usuário: ");
+	scanf("%f", &n1);
+	
+	printf("\nDe 1 a 10 avalie a facilidade de implementar esse requisito: ");
+	scanf("%f", &n2);
+	
+	printf("\nDe 1 a 10 avalie a velocidade que levará para a implementação: ");
+	scanf("%f", &n3);
+	
+	media = (n1 + n2 + n3)/3;
+	
+	if(media >= 0 && media < 4)
+	{
+		printf("\nREQUISITO: %s\n", Req);
+		printf("\nImpacto: %f", n1);
+		printf("\nFacilidade: %f", n2);
+		printf("\nVelocidade: %f", n3);
+		printf("\n\nPRIORIDADE: Baixa\n");		
+	}
+	else if(media >= 4 && media < 7)
+	{
+		printf("\nREQUISITO: %s\n", Req);
+		printf("\nImpacto: %f", n1);
+		printf("\nFacilidade: %f", n2);
+		printf("\nVelocidade: %f", n3);
+		printf("\n\nPRIORIDADE: Média\n");
+	}
+	else if(media >= 7 && media <= 9)
+	{
+		printf("\nREQUISITO: %s\n", Req);
+		printf("\nImpacto: %f", n1);
+		printf("\nFacilidade: %f", n2);
+		printf("\nVelocidade: %f", n3);
+		printf("\n\nPRIORIDADE: Alta\n");
+	}
+	else if(media > 9 && media <= 10)
+	{
+		printf("\nREQUISITO: %s\n", Req);
+		printf("\nImpacto: %f", n1);
+		printf("\nFacilidade: %f", n2);
+		printf("\nVelocidade: %f", n3);
+		printf("\n\nPRIORIDADE: Máxima\n");		
+	}
+	else
+	{
+		printf("\nInformações inválidas!!! ");
+	}
+}
