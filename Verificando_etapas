@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <locale.h>
+#include <math.h>
+
+int main() {
+    setlocale(LC_ALL, "Portuguese");
+
+    int num_etapas;
+    
+    printf("Quantas etapas o projeto tem? ");
+    scanf("%d", &num_etapas);
+    
+    char nome_etapas[num_etapas][50];
+    int concluida[num_etapas];
+
+    for (int i = 0; i < num_etapas; i++) {
+        printf("Digite o nome da etapa %d: ", i + 1);
+        scanf(" %[^\n]", nome_etapas[i]);
+        concluida[i] = 0;
+    }
+    
+    int etapas_restantes = num_etapas;
+
+    while (etapas_restantes > 0) {
+        printf("\nStatus das Etapas:\n");
+        
+        for (int i = 0; i < num_etapas; i++) {
+            if (concluida[i] == 0) {
+                int status;
+                printf("A etapa \"%s\" foi concluída? (1 para Sim, 0 para Não): ", nome_etapas[i]);
+                scanf("%d", &status);
+                
+                if (status == 1) {
+                    concluida[i] = 1;
+                    etapas_restantes--;
+                }
+            }
+        }
+    }
+
+    printf("\nTodas as etapas foram concluídas!\n");
+}
